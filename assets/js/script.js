@@ -259,7 +259,7 @@ const utentiAttiviNumero = utenti.reduce((acc, u) => acc + u.attivo, 0);
 
 console.log(utentiAttiviNumero);
 
-/* Ho aggiunto un altro valore all'array principale con attuvo: true per vedere se cambiava il numero, 	
+/* Ho aggiunto un altro valore all'array principale con attivo: true per vedere se cambiava il numero, 	
 		id: 7,
 		nome: 'Francesca',
 		cognome: 'Colorati',
@@ -277,7 +277,35 @@ console.log(utentiAttiviNumero);
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
-console.log(utenti.sort((eta) => eta - 1));
+//Ordine età crescente
+const utentiPerEta = [...utenti].sort((a, b) => a.eta - b.eta);
+
+const nomiPerEta = utentiPerEta.map(u => u.nome);
+console.log(nomiPerEta);
+
+//Ordine alfabetico
+
+const utentiPerNome = [...utenti].sort((a, b) => {
+  if (a.nome > b.nome) {
+    return 1;
+  } else if (a.nome < b.nome) {
+    return -1;
+  } else {
+    return 0;
+  }
+});
+
+console.log(utentiPerNome); // Qua tornano in ordine alfabetico
+
+/* ------------------------ 
+
+Prova 2 ordine alfabetico*/
+
+
+const utentiPerNome2 = [...utenti].sort((a, b) => a.nome - b.nome); //chiedere a dario come fa a tornare se sono stringhe e non numeri?????
+
+const nomiPerNome2 = utentiPerNome2.map(u => u.nome);
+console.log(nomiPerNome2); // Tornano non in ordine alfabetico, torna "Antonio" "Anna" "Luca" "Sara" "Marco" "Chiara" "Francesca" perché??? 
 
 /* ESERCIZIO 15 — Chaining
    Componi una catena di metodi che:
@@ -288,3 +316,15 @@ console.log(utenti.sort((eta) => eta - 1));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+const catena = utenti
+  .filter(u => u.attivo)
+  .map(u => `${u.nome} ${u.cognome}`)
+  .sort((a, b) => {
+    if (a > b) return 1;
+    if (a < b) return -1;
+    return 0;
+  });
+
+console.log(catena);
+
