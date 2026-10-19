@@ -111,6 +111,16 @@ console.log(riepilogo(utenti[2]));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+const numeri = [1, 2, 3];
+
+const numeri99 = [...numeri];
+
+numeri99.push(99);
+
+console.log('Originale:', numeri);
+console.log('Copia:', numeri99);
+
+
 /* ESERCIZIO 5 — Spread per concatenare
    frutti  = ["mela", "banana"]
    verdure = ["carota", "spinaci"]
@@ -119,6 +129,14 @@ console.log(riepilogo(utenti[2]));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+const frutti = ["mela", "banana"];
+const verdure = ["carota", "spinaci"];
+
+const cibo = [...frutti, ...verdure];
+
+console.log(cibo);
+
+
 /* ESERCIZIO 6 — Spread su oggetto
    prodotto = { nome: "Cuffie", prezzo: 79.99 }
    Crea un nuovo oggetto con "disponibile: true" aggiunto, senza modificare prodotto.
@@ -126,6 +144,8 @@ console.log(riepilogo(utenti[2]));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+
 
 /* ESERCIZIO 7 — forEach
    Stampa tutti gli utenti nel formato "- Nome Cognome (città)".
