@@ -55,6 +55,14 @@ const utenti = [
 		attivo: true,
 		città: 'Milano',
 	},
+	{
+		id: 7,
+		nome: 'Francesca',
+		cognome: 'Colorati',
+		eta: 52,
+		attivo: true,
+		città: 'Milano',
+	},
 ];
 
 /* ESERCIZIO 1 — Arrow function compatta
@@ -145,7 +153,19 @@ console.log(cibo);
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+const prodotto = {
+	nome: "Cuffie",
+	prezzo: 79.99
+};
 
+const prodottoDisponibile = {
+	...prodotto,
+	disponibile: true,
+
+};
+
+console.log(prodotto);
+console.log(prodottoDisponibile);
 
 /* ESERCIZIO 7 — forEach
    Stampa tutti gli utenti nel formato "- Nome Cognome (città)".
@@ -154,12 +174,20 @@ console.log(cibo);
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+utenti.forEach(({ nome, cognome, città }) => {
+	console.log(`- ${nome} ${cognome} (${città})`);
+});
+
+
+
 /* ESERCIZIO 8 — map a stringhe
    Usa map per creare nomiCompleti = ["Mario Rossi", "Anna Bianchi", ...].
    Stampa l'array.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+const nomiCompleti = utenti.map(z => ` ${z.nome} ${z.cognome}`); //ho scritto z invece che u per provare a vedere se funzionava comunque, funziona perché è una variabile dichiarata come i nei for.
 
 /* ESERCIZIO 9 — map a oggetti
    Usa map per creare utentiPlus: array di oggetti dove ogni utente ha tutte
@@ -171,12 +199,23 @@ console.log(cibo);
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+const utentiPlus = utenti.map(u => ({
+	...u,
+	descrizione: `${u.nome} ${u.cognome}, ${u.città}`
+}));
+
+console.log(utentiPlus[0]);
+
 /* ESERCIZIO 10 — filter attivi
    Usa filter per ottenere solo gli utenti con attivo: true.
    Stampa l'array risultante.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+const utentiAttivi = utenti.filter(u => u.attivo === true);
+
+console.log(utentiAttivi);
 
 /* ESERCIZIO 11 — filter combinato
    Usa filter per ottenere solo gli utenti maggiorenni (eta >= 18) che vivono a Milano.
@@ -185,12 +224,20 @@ console.log(cibo);
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+const utentiMaggiorenni = utenti.filter(u => u.eta >= 18);
+
+console.log(utentiMaggiorenni);
+
 /* ESERCIZIO 12 — find
    Usa find per trovare il primo utente con id === 4.
    Stampa l'oggetto.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+const trovaUtenti = utenti.find(u => u.id === 4);
+
+console.log(trovaUtenti);
 
 /* ESERCIZIO 13 — reduce
    a) Usa reduce per calcolare l'età media (somma età / numero utenti). Stampa.
@@ -199,12 +246,38 @@ console.log(cibo);
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+//a
+
+const sommaEtaUtenti = utenti.reduce((acc, u) => acc + u.eta, 0);
+const etaMedia = sommaEtaUtenti / utenti.length;
+
+console.log(etaMedia);
+
+//b
+
+const utentiAttiviNumero = utenti.reduce((acc, u) => acc + u.attivo, 0);
+
+console.log(utentiAttiviNumero);
+
+/* Ho aggiunto un altro valore all'array principale con attuvo: true per vedere se cambiava il numero, 	
+		id: 7,
+		nome: 'Francesca',
+		cognome: 'Colorati',
+		eta: 52,
+		attivo: true,
+		città: 'Milano', 
+		
+		il numero in console.log risulta 5, la funzione funziona*/
+
+
 /* ESERCIZIO 14 — sort
    a) Ordina gli utenti per eta crescente. Stampa l'array di nomi nell'ordine.
    b) Ordina gli utenti per nome alfabeticamente. Stampa l'array di nomi nell'ordine.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+console.log(utenti.sort((eta) => eta - 1));
 
 /* ESERCIZIO 15 — Chaining
    Componi una catena di metodi che:
