@@ -328,3 +328,12 @@ const catena = utenti
 
 console.log(catena);
 
+
+/*const catena = utenti
+  .filter(u => u.attivo)
+  .map(u => `${u.nome} ${u.cognome}`)
+  .sort();
+
+console.log(catena);
+
+Torna anche con sort() senza bisogno di ripetere if else di prima*/
